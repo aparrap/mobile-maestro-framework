@@ -1,3 +1,5 @@
+appId: com.appiumpro.the_app
+---
 # Screen Object: Login.tryInvalidLogin(username,password)
 - tapOn:
     id: "username"

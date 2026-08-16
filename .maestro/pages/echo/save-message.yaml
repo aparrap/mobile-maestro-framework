@@ -1,3 +1,5 @@
+appId: com.appiumpro.the_app
+---
 # Screen Object: Echo.saveMessage(text)
 - tapOn:
     id: "messageInput"

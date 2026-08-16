@@ -1,3 +1,5 @@
+appId: com.appiumpro.the_app
+---
 # Screen Object: Home.openClipboard()
 - assertVisible:
     id: "Clipboard Demo"
