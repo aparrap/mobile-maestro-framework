@@ -1,0 +1,7 @@
+appId: com.appiumpro.the_app
+name: iOS | Home smoke
+---
+- launchApp:
+    clearState: true
+- runFlow: ../../pages/home/assert-home.yaml
+- takeScreenshot: screenshots/ios-home-smoke

@@ -1,0 +1,11 @@
+appId: com.appiumpro.the_app
+name: Android | Clipboard round trip
+---
+- launchApp:
+    clearState: true
+- runFlow: ../../pages/home/open-clipboard.yaml
+- runFlow:
+    file: ../../pages/clipboard/set-and-refresh.yaml
+    env:
+      CLIPBOARD_MESSAGE: "Clipboard from Maestro Android"
+- takeScreenshot: screenshots/android-clipboard

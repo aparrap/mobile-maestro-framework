@@ -1,0 +1,11 @@
+appId: com.appiumpro.the_app
+name: Android | Echo message can be saved
+---
+- launchApp:
+    clearState: true
+- runFlow: ../../pages/home/open-echo.yaml
+- runFlow:
+    file: ../../pages/echo/save-message.yaml
+    env:
+      ECHO_MESSAGE: "Maestro says hello from Android"
+- takeScreenshot: screenshots/android-echo

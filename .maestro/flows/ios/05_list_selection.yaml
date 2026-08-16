@@ -1,0 +1,11 @@
+appId: com.appiumpro.the_app
+name: iOS | Select item from long list
+---
+- launchApp:
+    clearState: true
+- runFlow: ../../pages/home/open-list.yaml
+- runFlow:
+    file: ../../pages/list/select-cloud.yaml
+    env:
+      CLOUD_NAME: "AWS"
+- takeScreenshot: screenshots/ios-list-selection

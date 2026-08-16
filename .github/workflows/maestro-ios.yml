@@ -1,0 +1,38 @@
+name: Maestro iOS
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - ".maestro/**"
+      - "scripts/**"
+      - ".github/workflows/maestro-ios.yml"
+
+jobs:
+  ios:
+    runs-on: macos-15
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Maestro
+        run: curl -Ls "https://get.maestro.mobile.dev" | bash
+      - name: Add Maestro to PATH
+        run: echo "$HOME/.maestro/bin" >> "$GITHUB_PATH"
+      - name: Download demo app
+        run: ./scripts/download-theapp-assets.sh
+      - name: Boot Simulator
+        run: |
+          xcrun simctl boot "iPhone 15" || true
+          xcrun simctl bootstatus booted -b
+      - name: Install app and run iOS flows
+        run: |
+          xcrun simctl install booted apps/ios/TheApp.app
+          maestro test .maestro/flows/ios
+      - name: Upload screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: maestro-ios-artifacts
+          path: |
+            screenshots
+            .maestro/reports

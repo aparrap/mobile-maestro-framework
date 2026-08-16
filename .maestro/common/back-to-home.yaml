@@ -1,0 +1,3 @@
+# Reusable navigation helper. Works best when called from a child screen.
+- back
+- assertVisible: "TheApp"

@@ -1,0 +1,13 @@
+# Screen Object: Login.loginAs(username,password)
+- tapOn:
+    id: "username"
+- inputText: "${USERNAME}"
+- tapOn:
+    id: "password"
+- inputText: "${PASSWORD}"
+- hideKeyboard
+- tapOn:
+    id: "loginBtn"
+- assertVisible: "Secret Area"
+- assertVisible: "You are logged in as"
+- assertVisible: "${USERNAME}"

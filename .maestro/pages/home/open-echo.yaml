@@ -1,0 +1,6 @@
+# Screen Object: Home.openEcho()
+- assertVisible:
+    id: "Echo Box"
+- tapOn:
+    id: "Echo Box"
+- assertVisible: "Echo Screen"

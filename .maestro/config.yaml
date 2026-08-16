@@ -1,0 +1,6 @@
+# Global Maestro workspace config.
+# Keep this file deliberately small; device/app specifics are supplied by each flow.
+# Docs: https://docs.maestro.dev/
+tags:
+  - mobile
+  - e2e

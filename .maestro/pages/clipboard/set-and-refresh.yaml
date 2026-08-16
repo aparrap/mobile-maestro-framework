@@ -1,0 +1,11 @@
+# Screen Object: Clipboard.setText(text)
+- tapOn:
+    id: "messageInput"
+- inputText: "${CLIPBOARD_MESSAGE}"
+- hideKeyboard
+- tapOn:
+    id: "setClipboardText"
+- tapOn:
+    id: "refreshClipboardText"
+- assertVisible: "Here's the clipboard text:"
+- assertVisible: "${CLIPBOARD_MESSAGE}"

@@ -1,0 +1,6 @@
+validUser:
+  username: alice
+  password: mypassword
+invalidUser:
+  username: alice
+  password: wrongpassword

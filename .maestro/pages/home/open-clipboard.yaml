@@ -1,0 +1,6 @@
+# Screen Object: Home.openClipboard()
+- assertVisible:
+    id: "Clipboard Demo"
+- tapOn:
+    id: "Clipboard Demo"
+- assertVisible: "Refresh Clipboard Text"

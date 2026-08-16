@@ -1,0 +1,12 @@
+appId: com.appiumpro.the_app
+name: iOS | Valid user can log in
+---
+- launchApp:
+    clearState: true
+- runFlow: ../../pages/home/open-login.yaml
+- runFlow:
+    file: ../../pages/login/login-success.yaml
+    env:
+      USERNAME: "alice"
+      PASSWORD: "mypassword"
+- takeScreenshot: screenshots/ios-login-success

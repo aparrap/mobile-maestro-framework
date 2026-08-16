@@ -1,0 +1,8 @@
+# Screen Object: Home.openList()
+- scrollUntilVisible:
+    element:
+      id: "List Demo"
+    direction: DOWN
+- tapOn:
+    id: "List Demo"
+- assertVisible: "Check out these clouds"

@@ -1,0 +1,13 @@
+# Screen Object: Login.tryInvalidLogin(username,password)
+- tapOn:
+    id: "username"
+- inputText: "${USERNAME}"
+- tapOn:
+    id: "password"
+- inputText: "${PASSWORD}"
+- hideKeyboard
+- tapOn:
+    id: "loginBtn"
+- assertVisible: "Invalid login credentials, please try again"
+- tapOn: "OK"
+- assertVisible: "Login"

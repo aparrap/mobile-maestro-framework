@@ -1,0 +1,14 @@
+# Screen Object: Home / main menu assertions
+- assertVisible: "TheApp"
+- assertVisible:
+    id: "Echo Box"
+- assertVisible:
+    id: "Login Screen"
+- assertVisible:
+    id: "Clipboard Demo"
+- scrollUntilVisible:
+    element:
+      id: "List Demo"
+    direction: DOWN
+- assertVisible:
+    id: "List Demo"

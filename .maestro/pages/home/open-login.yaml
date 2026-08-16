@@ -1,0 +1,6 @@
+# Screen Object: Home.openLogin()
+- assertVisible:
+    id: "Login Screen"
+- tapOn:
+    id: "Login Screen"
+- assertVisible: "Login"

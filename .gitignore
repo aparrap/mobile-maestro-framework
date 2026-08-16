@@ -1,0 +1,11 @@
+# App binaries are downloaded by scripts/download-theapp-assets.sh
+apps/android/*.apk
+apps/ios/*.app
+apps/ios/*.app.zip
+apps/ios/TheApp.app/**
+
+# Maestro outputs
+.maestro/reports/**
+screenshots/**
+*.log
+.DS_Store

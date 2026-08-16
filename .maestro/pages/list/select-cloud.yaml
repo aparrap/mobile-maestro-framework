@@ -1,0 +1,10 @@
+# Screen Object: List.selectCloud(name)
+- scrollUntilVisible:
+    element:
+      id: "${CLOUD_NAME}"
+    direction: DOWN
+- tapOn:
+    id: "${CLOUD_NAME}"
+- assertVisible: "Your Cloud Selection"
+- assertVisible: "Congratulations! You expressed interest in the ${CLOUD_NAME} cloud"
+- tapOn: "OK"

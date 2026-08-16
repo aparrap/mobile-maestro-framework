@@ -1,0 +1,8 @@
+# Screen Object: Echo.saveMessage(text)
+- tapOn:
+    id: "messageInput"
+- inputText: "${ECHO_MESSAGE}"
+- hideKeyboard
+- tapOn: "Save"
+- assertVisible: "Here's what you said before:"
+- assertVisible: "${ECHO_MESSAGE}"
