@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuites>
+  <testsuite name="Test Suite" device="iPhone 15 - iOS 17.5 - 916AF154-34B3-47C1-893B-20F22B372B24" tests="5" failures="1" time="64.039" timestamp="2026-08-16T22:56:54">
+    <testcase id="iOS | Echo message can be saved" name="iOS | Echo message can be saved" classname="iOS | Echo message can be saved" file=".maestro/flows/ios/02_echo_message.yaml" time="11.218" timestamp="2026-08-16T22:56:54" status="SUCCESS"/>
+    <testcase id="iOS | Home smoke" name="iOS | Home smoke" classname="iOS | Home smoke" file=".maestro/flows/ios/01_home_smoke.yaml" time="4.145" timestamp="2026-08-16T22:57:05" status="SUCCESS"/>
+    <testcase id="iOS | Select item from long list" name="iOS | Select item from long list" classname="iOS | Select item from long list" file=".maestro/flows/ios/05_list_selection.yaml" time="8.191" timestamp="2026-08-16T22:57:09" status="SUCCESS"/>
+    <testcase id="iOS | Clipboard round trip" name="iOS | Clipboard round trip" classname="iOS | Clipboard round trip" file=".maestro/flows/ios/04_clipboard_round_trip.yaml" time="11.382" timestamp="2026-08-16T22:57:17" status="SUCCESS"/>
+    <testcase id="iOS | Valid user can log in" name="iOS | Valid user can log in" classname="iOS | Valid user can log in" file=".maestro/flows/ios/03_login_success.yaml" time="29.079" timestamp="2026-08-16T22:57:29" status="ERROR">
+      <failure>Assertion is false: "You are logged in as" is visible</failure>
+    </testcase>
+  </testsuite>
+</testsuites>

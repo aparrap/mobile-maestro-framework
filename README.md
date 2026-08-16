@@ -260,3 +260,13 @@ Both included workflows now:
 5. Fail the job after publishing the evidence when the Maestro suite fails.
 
 This gives you a red/green CI signal without losing the failure evidence needed to diagnose the run.
+
+## iOS simulator selection in GitHub Actions
+
+The iOS workflow does not hardcode a simulator model. Hosted GitHub runner images change over time, so `scripts/boot-ios-simulator.sh` inspects the simulators currently installed on the runner, selects an available iPhone from the newest iOS runtime, boots it by UDID, and exports `IOS_SIMULATOR_UDID` for the install step.
+
+To inspect the runner manually:
+
+```bash
+xcrun simctl list devices available
+```
