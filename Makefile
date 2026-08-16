@@ -1,4 +1,4 @@
-.PHONY: download android-device ios-device install-android install-ios test-android test-ios studio
+.PHONY: download android-device ios-device install-android install-ios validate test-android test-ios studio
 
 download:
 	./scripts/download-theapp-assets.sh
@@ -15,10 +15,13 @@ install-android:
 install-ios:
 	./scripts/install-apps.sh ios
 
-test-android:
+validate:
+	./scripts/validate-maestro-flows.sh
+
+test-android: validate
 	./scripts/run-maestro.sh android
 
-test-ios:
+test-ios: validate
 	./scripts/run-maestro.sh ios
 
 studio:

@@ -68,6 +68,18 @@ You can override the release:
 THEAPP_VERSION=v1.12.0 make download
 ```
 
+
+## Maestro flow file requirement
+
+Every YAML file executed directly or through `runFlow` is a complete Maestro Flow. It therefore needs a configuration section and the `---` separator, including reusable page/POM subflows. For this sample app, reusable page files start with:
+
+```yaml
+appId: com.appiumpro.the_app
+---
+```
+
+Run `make validate` to catch a missing flow header before launching the suite.
+
 ## Run locally on Android
 
 ```bash
