@@ -1,10 +1,23 @@
 appId: com.appiumpro.the_app
 ---
 # Screen Object: Echo.saveMessage(text)
+
 - tapOn:
     id: "messageInput"
+
 - inputText: "${ECHO_MESSAGE}"
-- hideKeyboard
-- tapOn: "Save"
+
+# iOS keyboard dismissal is unreliable.
+# Only explicitly hide it on Android.
+- runFlow:
+    when:
+      platform: Android
+    commands:
+      - hideKeyboard
+
+- tapOn:
+    id: "messageSaveBtn"
+
 - assertVisible: "Here's what you said before:"
+
 - assertVisible: "${ECHO_MESSAGE}"

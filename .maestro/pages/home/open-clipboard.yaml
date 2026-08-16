@@ -1,8 +1,12 @@
 appId: com.appiumpro.the_app
 ---
 # Screen Object: Home.openClipboard()
+
 - assertVisible:
     id: "Clipboard Demo"
+
 - tapOn:
     id: "Clipboard Demo"
-- assertVisible: "Refresh Clipboard Text"
+
+- assertVisible:
+    id: "refreshClipboardText"

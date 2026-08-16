@@ -199,3 +199,64 @@ Android runs on Ubuntu with an emulator. iOS runs on a macOS runner with an iOS 
 - Keep visible-text assertions for user-visible copy, but avoid relying on copy for every action.
 - Use real devices for camera, biometrics, push notification, performance, network, and hardware integration coverage.
 - Keep Maestro as the fast functional-smoke layer. Use Appium when you need complex protocol-level control, custom gestures, cloud grid breadth, or deeper native hooks.
+
+## Reporting
+
+Every normal test command now generates reports automatically:
+
+```bash
+make test-ios
+make test-android
+```
+
+The output is written to:
+
+```text
+reports/
+├── ios/
+│   ├── junit.xml      # CI / test-management friendly result
+│   ├── report.html    # human-readable dashboard
+│   ├── summary.md     # GitHub Actions job summary
+│   └── artifacts/     # screenshots, logs, command metadata
+└── android/
+    └── ... same structure ...
+```
+
+Open the latest local report with:
+
+```bash
+make report-ios
+make report-android
+```
+
+Clean generated output with:
+
+```bash
+make clean-reports
+```
+
+The suite is executed **once**. Maestro writes JUnit plus its test/debug artifacts, and `scripts/render-maestro-report.py` converts that same result into HTML and Markdown. This avoids running expensive simulator/emulator tests twice just to obtain two report formats.
+
+Each executable flow contains report metadata such as:
+
+```yaml
+properties:
+  testCaseId: "MOB-AUTH-001"
+  feature: "Authentication"
+  priority: "P0"
+  platform: "iOS"
+```
+
+See [`docs/reporting.md`](docs/reporting.md) for the full reporting architecture.
+
+### GitHub Actions reporting
+
+Both included workflows now:
+
+1. Run Maestro and preserve the real test exit code.
+2. Generate JUnit, HTML, Markdown, screenshots and debug artifacts.
+3. Publish `summary.md` into the GitHub Actions **Job Summary**.
+4. Upload the complete platform report as a downloadable Actions artifact.
+5. Fail the job after publishing the evidence when the Maestro suite fails.
+
+This gives you a red/green CI signal without losing the failure evidence needed to diagnose the run.

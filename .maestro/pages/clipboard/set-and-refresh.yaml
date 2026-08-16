@@ -1,13 +1,28 @@
 appId: com.appiumpro.the_app
 ---
 # Screen Object: Clipboard.setText(text)
+
 - tapOn:
     id: "messageInput"
+
 - inputText: "${CLIPBOARD_MESSAGE}"
-- hideKeyboard
+
+# Android only.
+- runFlow:
+    when:
+      platform: Android
+    commands:
+      - hideKeyboard
+
 - tapOn:
     id: "setClipboardText"
+
 - tapOn:
     id: "refreshClipboardText"
-- assertVisible: "Here's the clipboard text:"
+
+- extendedWaitUntil:
+    visible:
+      id: "clipboardText"
+    timeout: 5000
+
 - assertVisible: "${CLIPBOARD_MESSAGE}"
