@@ -1,11 +1,139 @@
-# App binaries are downloaded by scripts/download-theapp-assets.sh
-apps/android/*.apk
-apps/ios/*.app
-apps/ios/*.app.zip
-apps/ios/TheApp.app/**
+# ============================================================
+# Mobile Maestro Framework
+# ============================================================
 
-# Maestro outputs
-.maestro/reports/**
-screenshots/**
+# ------------------------------------------------------------
+# Maestro generated reports / test artifacts
+# ------------------------------------------------------------
+reports/
+.maestro/reports/
+.maestro/debug/
+.maestro/artifacts/
+.maestro/test-output/
+screenshots/
+
+# Maestro / test runtime output that may be created outside reports/
+maestro.log
+commands-*.json
+junit*.xml
 *.log
+
+# ------------------------------------------------------------
+# Demo / application binaries
+#
+# The framework downloads test apps with:
+#   scripts/download-theapp-assets.sh
+# Do not commit generated/downloaded application binaries.
+# ------------------------------------------------------------
+apps/android/*.apk
+apps/android/*.aab
+apps/ios/*.app/
+apps/ios/*.app.zip
+apps/ios/*.ipa
+apps/ios/*.xcarchive/
+
+# Keep empty application directories in Git when .gitkeep is used.
+!apps/android/.gitkeep
+!apps/ios/.gitkeep
+
+# ------------------------------------------------------------
+# Android / Android Studio
+# ------------------------------------------------------------
+.gradle/
+**/build/
+local.properties
+captures/
+.externalNativeBuild/
+.cxx/
+.idea/
+*.iml
+
+# Android signing material / local credentials
+*.jks
+*.keystore
+keystore.properties
+
+# ------------------------------------------------------------
+# iOS / Xcode
+# ------------------------------------------------------------
+DerivedData/
+*.xcuserstate
+xcuserdata/
+*.moved-aside
+*.xccheckout
+*.xcscmblueprint
+*.dSYM/
+*.dSYM.zip
+
+# Signing / provisioning material
+*.mobileprovision
+*.p12
+*.cer
+
+# ------------------------------------------------------------
+# Environment variables / secrets
+# ------------------------------------------------------------
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# ------------------------------------------------------------
+# Python
+# The HTML report generator is Python, so ignore local runtime files.
+# ------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# ------------------------------------------------------------
+# Node / JavaScript tooling
+# Useful if repository tooling is added later.
+# ------------------------------------------------------------
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ------------------------------------------------------------
+# Editors
+# ------------------------------------------------------------
+.vscode/
+*.swp
+*.swo
+*~
+
+# ------------------------------------------------------------
+# macOS / Windows filesystem noise
+# ------------------------------------------------------------
 .DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+Desktop.ini
+
+# ------------------------------------------------------------
+# Temporary / local files
+# ------------------------------------------------------------
+tmp/
+temp/
+.cache/
+*.tmp
+*.temp
+*.bak
+*.orig
+
+# ------------------------------------------------------------
+# Local archives created while packaging the framework
+# ------------------------------------------------------------
+mobile-maestro-framework*.zip
